@@ -5,52 +5,58 @@ function Notfound() {
     <>
       <style>{`
         .notfound-page {
-          flex: 1;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 40px;
-          background: var(--paper);
-        }
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: var(--bg);
+}
 
-        .notfound-card {
-          max-width: 420px;
-          padding: 44px;
-          text-align: center;
-        }
+.notfound-card {
+  max-width: 420px;
+  padding: 46px;
+  text-align: center;
+  border-radius: var(--radius-lg);
+}
 
-        .notfound-code {
-          font-family: var(--font-mono);
-          color: var(--gold-deep);
-          font-size: 13px;
-          font-weight: 700;
-          letter-spacing: 1px;
-        }
+.notfound-code {
+  color: var(--accent-1);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
 
-        .notfound-title {
-          margin: 14px 0 10px;
-          font-family: var(--font-display);
-          font-size: 26px;
-          font-weight: 600;
-          color: var(--ink);
-        }
+.notfound-title {
+  margin: 14px 0 10px;
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--ink);
+}
 
-        .notfound-text {
-          margin: 0 0 26px;
-          color: var(--slate);
-          font-size: 14px;
-        }
+.notfound-text {
+  margin: 0 0 26px;
+  color: var(--slate);
+  font-size: 14px;
+}
 
-        .notfound-link {
-          display: inline-block;
-          padding: 11px 22px;
-          border-radius: 7px;
-          background: var(--ink);
-          color: #fdfbf5;
-          text-decoration: none;
-          font-size: 13.5px;
-          font-weight: 700;
-        }
+.notfound-link {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 999px;
+  background: var(--gradient);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 700;
+  box-shadow: var(--shadow-btn);
+  transition: all 0.2s ease;
+}
+
+.notfound-link:hover {
+  transform: translateY(-2px) scale(1.02);
+}
       `}</style>
 
       <div className="notfound-page">

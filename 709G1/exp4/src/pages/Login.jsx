@@ -34,174 +34,168 @@ function Login() {
       <style>{`
 
         .login-page {
-          flex: 1;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding: 30px;
-          background:
-            radial-gradient(circle at 15% 20%, rgba(184, 134, 46, 0.10), transparent 35%),
-            var(--ink);
-        }
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(99, 102, 241, 0.16), transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(139, 92, 246, 0.14), transparent 40%),
+    var(--ink);
+}
 
-        .login-card {
-          width: 100%;
-          max-width: 410px;
-          padding: 40px;
-          animation: slideUp 0.4s ease;
-        }
+.login-card {
+  width: 100%;
+  max-width: 410px;
+  padding: 42px;
+  border-radius: var(--radius-lg);
+  animation: fadeSlideIn 0.4s ease;
+}
 
-        @keyframes slideUp {
-          from {
-            opacity: 0;
-            transform: translateY(18px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
+.login-seal {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  border: none;
+  background: var(--gradient);
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(99, 102, 241, 0.35);
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 800;
+}
 
-        .login-seal {
-          width: 54px;
-          height: 54px;
-          margin: 0 auto 20px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 50%;
-          border: 1.5px solid var(--gold);
-          background: var(--ink);
-          color: var(--gold-soft);
-          font-family: var(--font-display);
-          font-size: 24px;
-          font-weight: 700;
-        }
+.login-card h2 {
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-display);
+  color: var(--ink);
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
 
-        .login-card h2 {
-          margin: 0;
-          text-align: center;
-          font-family: var(--font-display);
-          color: var(--ink);
-          font-size: 26px;
-          font-weight: 600;
-        }
+.login-subtitle {
+  margin: 8px 0 30px;
+  text-align: center;
+  color: var(--slate);
+  font-size: 14px;
+}
 
-        .login-subtitle {
-          margin: 8px 0 30px;
-          text-align: center;
-          color: var(--slate);
-          font-size: 13.5px;
-        }
+.input-group {
+  margin-bottom: 18px;
+}
 
-        .input-group {
-          margin-bottom: 18px;
-        }
+.input-group label {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--ink-soft);
+  font-size: 13px;
+  font-weight: 600;
+}
 
-        .input-group label {
-          display: block;
-          margin-bottom: 7px;
-          color: var(--ink-soft);
-          font-size: 13px;
-          font-weight: 600;
-        }
+.input-wrapper {
+  position: relative;
+}
 
-        .input-wrapper {
-          position: relative;
-        }
+.input-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  font-size: 15px;
+}
 
-        .input-icon {
-          position: absolute;
-          left: 14px;
-          top: 50%;
-          transform: translateY(-50%);
-          color: var(--slate);
-          font-size: 15px;
-        }
+.input-wrapper input {
+  width: 100%;
+  height: 48px;
+  padding: 0 44px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  outline: none;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
 
-        .input-wrapper input {
-          width: 100%;
-          height: 46px;
-          padding: 0 42px;
-          border: 1px solid var(--line);
-          border-radius: 7px;
-          outline: none;
-          background: var(--paper);
-          color: var(--ink);
-          font-size: 13.5px;
-          transition: all 0.2s ease;
-        }
+.input-wrapper input::placeholder {
+  color: var(--muted);
+}
 
-        .input-wrapper input::placeholder {
-          color: #a49f8d;
-        }
+.input-wrapper input:focus {
+  background: var(--surface);
+  border-color: var(--accent-1);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+}
 
-        .input-wrapper input:focus {
-          background: var(--surface-flat);
-          border-color: var(--gold);
-          box-shadow: 0 0 0 3px rgba(184, 134, 46, 0.15);
-        }
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 14px;
+}
 
-        .password-toggle {
-          position: absolute;
-          right: 12px;
-          top: 50%;
-          transform: translateY(-50%);
-          border: none;
-          background: transparent;
-          color: var(--slate);
-          cursor: pointer;
-          font-size: 14px;
-        }
+.password-toggle:hover {
+  color: var(--accent-1);
+}
 
-        .password-toggle:hover {
-          color: var(--gold-deep);
-        }
+.login-button {
+  width: 100%;
+  height: 50px;
+  margin-top: 8px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--gradient);
+  color: #ffffff;
+  font-size: 14.5px;
+  font-weight: 700;
+  box-shadow: var(--shadow-btn);
+  transition: all 0.2s ease;
+}
 
-        .login-button {
-          width: 100%;
-          height: 48px;
-          margin-top: 8px;
-          border: none;
-          border-radius: 7px;
-          background: var(--ink);
-          color: #fdfbf5;
-          font-size: 14px;
-          font-weight: 700;
-          transition: all 0.2s ease;
-        }
+.login-button:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 14px 28px rgba(99, 102, 241, 0.35);
+}
 
-        .login-button:hover {
-          background: var(--ink-soft);
-          transform: translateY(-1px);
-        }
+.login-hint {
+  margin: 22px 0 0;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  border: 1px dashed var(--line);
+  text-align: center;
+  color: var(--slate);
+  font-size: 12px;
+}
 
-        .login-hint {
-          margin: 22px 0 0;
-          padding: 12px 14px;
-          border-radius: 7px;
-          background: var(--paper);
-          border: 1px dashed var(--line);
-          text-align: center;
-          color: var(--slate);
-          font-size: 12px;
-        }
+.login-hint code {
+  font-family: var(--font-body);
+  color: var(--accent-1);
+  font-weight: 700;
+}
 
-        .login-hint code {
-          font-family: var(--font-mono);
-          color: var(--gold-deep);
-          font-weight: 600;
-        }
+@media (max-width: 480px) {
+  .login-card {
+    padding: 30px 22px;
+  }
 
-        @media (max-width: 480px) {
-          .login-card {
-            padding: 30px 22px;
-          }
-
-          .login-card h2 {
-            font-size: 22px;
-          }
-        }
+  .login-card h2 {
+    font-size: 23px;
+  }
+}
       `}</style>
 
       <div className="login-page">

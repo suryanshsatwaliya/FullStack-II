@@ -22,13 +22,14 @@ function Dashboard({ students }) {
 
         .dashboard-page {
           flex: 1;
-          background: var(--paper);
+          background: var(--bg);
           padding: 44px 30px 70px;
         }
 
         .dashboard-wrapper {
           max-width: 1180px;
           margin: auto;
+          animation: fadeSlideIn 0.4s ease;
         }
 
         /* HEADER */
@@ -39,35 +40,35 @@ function Dashboard({ students }) {
           align-items: flex-end;
           padding-bottom: 22px;
           margin-bottom: 30px;
-          border-bottom: 1px solid var(--line);
         }
 
         .dashboard-title {
           margin: 0;
           font-family: var(--font-display);
-          font-size: 36px;
-          font-weight: 600;
-          letter-spacing: -0.5px;
+          font-size: 40px;
+          font-weight: 800;
+          letter-spacing: -1px;
           color: var(--ink);
         }
 
         .dashboard-subtitle {
           margin: 8px 0 0;
           color: var(--slate);
-          font-size: 14px;
+          font-size: 14.5px;
         }
 
         .welcome-badge {
           display: inline-flex;
           align-items: center;
           gap: 7px;
-          padding: 8px 14px;
+          padding: 9px 16px;
           background: var(--surface);
           border: 1px solid var(--line);
-          border-radius: 20px;
-          color: var(--gold-deep);
-          font-size: 12px;
+          border-radius: 999px;
+          color: var(--accent-1);
+          font-size: 12.5px;
           font-weight: 700;
+          box-shadow: var(--shadow-card);
         }
 
         /* STATISTICS */
@@ -75,42 +76,66 @@ function Dashboard({ students }) {
         .stats-grid {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
-          gap: 16px;
-          margin-bottom: 24px;
+          gap: 18px;
+          margin-bottom: 26px;
         }
 
         .stat-card {
-          padding: 22px;
-          min-height: 130px;
+          padding: 24px;
+          min-height: 140px;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          transition: 0.25s ease;
-          border-left: 3px solid var(--tab-color, var(--ink));
+          border-radius: var(--radius-lg);
         }
 
         .stat-card:hover {
-          transform: translateY(-3px);
+          transform: translateY(-4px);
+          box-shadow: var(--shadow-card-hover);
         }
 
-        .stat-card.total { --tab-color: var(--ink); }
-        .stat-card.active { --tab-color: var(--sage); }
-        .stat-card.inactive { --tab-color: var(--rust); }
-        .stat-card.graduated { --tab-color: var(--brass); }
+        .stat-icon-badge {
+          width: 42px;
+          height: 42px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 12px;
+          font-size: 19px;
+          margin-bottom: 14px;
+        }
+
+        .stat-card.total .stat-icon-badge {
+          background: var(--gradient-soft);
+          color: var(--accent-1);
+        }
+        .stat-card.active .stat-icon-badge {
+          background: var(--sage-bg);
+          color: var(--sage);
+        }
+        .stat-card.inactive .stat-icon-badge {
+          background: var(--rust-bg);
+          color: var(--rust);
+        }
+        .stat-card.graduated .stat-icon-badge {
+          background: var(--brass-bg);
+          color: var(--brass);
+        }
 
         .stat-label {
           color: var(--slate);
-          font-size: 12px;
+          font-size: 13px;
           font-weight: 600;
-          letter-spacing: 0.3px;
+          letter-spacing: 0.1px;
         }
 
         .stat-number {
-          margin-top: 14px;
-          font-family: var(--font-mono);
-          font-size: 32px;
-          font-weight: 700;
+          margin-top: 6px;
+          font-family: var(--font-display);
+          font-size: 34px;
+          font-weight: 800;
           color: var(--ink);
+          letter-spacing: -0.5px;
         }
 
         /* MANAGEMENT */
@@ -120,11 +145,12 @@ function Dashboard({ students }) {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          background: var(--ink);
-          border-radius: 10px;
-          padding: 32px;
-          margin-bottom: 30px;
+          background: var(--gradient);
+          border-radius: var(--radius-lg);
+          padding: 36px;
+          margin-bottom: 32px;
           overflow: hidden;
+          box-shadow: 0 20px 40px rgba(99, 102, 241, 0.25);
         }
 
         .management-content {
@@ -135,15 +161,15 @@ function Dashboard({ students }) {
         .management-title {
           margin: 0;
           font-family: var(--font-display);
-          font-size: 22px;
-          font-weight: 600;
-          color: #fdfbf5;
+          font-size: 24px;
+          font-weight: 800;
+          color: #ffffff;
         }
 
         .management-description {
-          margin: 8px 0 22px;
-          color: #b6bdd2;
-          font-size: 14px;
+          margin: 8px 0 24px;
+          color: rgba(255, 255, 255, 0.85);
+          font-size: 14.5px;
           max-width: 420px;
         }
 
@@ -157,60 +183,48 @@ function Dashboard({ students }) {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          padding: 12px 18px;
-          border-radius: 7px;
+          padding: 13px 20px;
+          border-radius: 999px;
           text-decoration: none;
-          font-size: 13px;
+          font-size: 13.5px;
           font-weight: 700;
-          transition: 0.2s ease;
+          transition: all 0.2s ease;
         }
 
         .primary-btn {
-          background: var(--gold);
-          color: var(--ink);
+          background: #ffffff;
+          color: var(--accent-1);
         }
 
         .primary-btn:hover {
-          background: #cc9a3e;
-          transform: translateY(-2px);
+          transform: translateY(-3px) scale(1.02);
+          box-shadow: 0 12px 24px rgba(15, 23, 42, 0.2);
         }
 
         .secondary-btn {
-          background: transparent;
-          color: #fdfbf5;
-          border: 1px solid rgba(232, 217, 181, 0.3);
+          background: rgba(255, 255, 255, 0.12);
+          color: #ffffff;
+          border: 1px solid rgba(255, 255, 255, 0.35);
         }
 
         .secondary-btn:hover {
-          border-color: var(--gold-soft);
-          transform: translateY(-2px);
+          background: rgba(255, 255, 255, 0.2);
+          transform: translateY(-3px) scale(1.02);
         }
 
         .management-decoration {
           position: absolute;
-          right: 20px;
+          right: 10px;
           bottom: -30px;
-          font-size: 130px;
-          opacity: 0.08;
+          font-size: 140px;
+          opacity: 0.15;
           transform: rotate(-8deg);
         }
 
         /* OUTLET */
 
         .outlet-container {
-          animation: pageEnter 0.35s ease;
-        }
-
-        @keyframes pageEnter {
-          from {
-            opacity: 0;
-            transform: translateY(12px);
-          }
-
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+          animation: fadeSlideIn 0.35s ease;
         }
 
         @media (max-width: 950px) {
@@ -238,7 +252,7 @@ function Dashboard({ students }) {
           }
 
           .dashboard-title {
-            font-size: 28px;
+            font-size: 30px;
           }
 
           .stats-grid {
@@ -246,7 +260,7 @@ function Dashboard({ students }) {
           }
 
           .management-card {
-            padding: 24px;
+            padding: 26px;
           }
 
           .management-buttons {
@@ -292,45 +306,57 @@ function Dashboard({ students }) {
           <div className="stats-grid">
 
             <div className="stat-card index-card total">
-              <div className="stat-label">
-                Total Students
-              </div>
+              <div className="stat-icon-badge">🎓</div>
+              <div>
+                <div className="stat-label">
+                  Total Students
+                </div>
 
-              <div className="stat-number">
-                {totalStudents}
+                <div className="stat-number">
+                  {totalStudents}
+                </div>
               </div>
             </div>
 
 
             <div className="stat-card index-card active">
-              <div className="stat-label">
-                Active Students
-              </div>
+              <div className="stat-icon-badge">✓</div>
+              <div>
+                <div className="stat-label">
+                  Active Students
+                </div>
 
-              <div className="stat-number">
-                {activeStudents}
+                <div className="stat-number">
+                  {activeStudents}
+                </div>
               </div>
             </div>
 
 
             <div className="stat-card index-card inactive">
-              <div className="stat-label">
-                Inactive Students
-              </div>
+              <div className="stat-icon-badge">✕</div>
+              <div>
+                <div className="stat-label">
+                  Inactive Students
+                </div>
 
-              <div className="stat-number">
-                {inactiveStudents}
+                <div className="stat-number">
+                  {inactiveStudents}
+                </div>
               </div>
             </div>
 
 
             <div className="stat-card index-card graduated">
-              <div className="stat-label">
-                Graduated Students
-              </div>
+              <div className="stat-icon-badge">★</div>
+              <div>
+                <div className="stat-label">
+                  Graduated Students
+                </div>
 
-              <div className="stat-number">
-                {graduatedStudents}
+                <div className="stat-number">
+                  {graduatedStudents}
+                </div>
               </div>
             </div>
 

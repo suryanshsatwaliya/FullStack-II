@@ -24,53 +24,48 @@ function StudentList({ students, deleteStudent }) {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          margin-bottom: 20px;
+          margin-bottom: 22px;
         }
 
         .students-title {
           margin: 0;
           font-family: var(--font-display);
-          font-size: 22px;
-          font-weight: 600;
+          font-size: 24px;
+          font-weight: 800;
           color: var(--ink);
+          letter-spacing: -0.3px;
         }
 
         .students-subtitle {
           margin: 5px 0 0;
           color: var(--slate);
-          font-size: 13px;
+          font-size: 13.5px;
         }
 
         .student-count {
-          padding: 7px 14px;
-          border-radius: 20px;
-          border: 1px solid var(--line);
-          background: var(--surface);
-          color: var(--gold-deep);
-          font-family: var(--font-mono);
-          font-size: 12px;
+          padding: 8px 16px;
+          border-radius: 999px;
+          background: var(--gradient-soft);
+          color: var(--accent-1);
+          font-size: 12.5px;
           font-weight: 700;
         }
 
         .students-grid {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
-          gap: 16px;
+          gap: 18px;
         }
 
         .student-card {
-          padding: 20px;
-          border-left: 3px solid var(--tab-color, var(--ink));
-          transition: 0.2s ease;
+          padding: 22px;
+          border-radius: var(--radius-lg);
         }
 
         .student-card:hover {
-          transform: translateY(-3px);
+          transform: translateY(-4px);
+          box-shadow: var(--shadow-card-hover);
         }
-
-        .student-card.active { --tab-color: var(--sage); }
-        .student-card.inactive { --tab-color: var(--rust); }
-        .student-card.graduated { --tab-color: var(--brass); }
 
         .student-top {
           display: flex;
@@ -86,15 +81,15 @@ function StudentList({ students, deleteStudent }) {
         }
 
         .student-avatar {
-          width: 42px;
-          height: 42px;
+          width: 44px;
+          height: 44px;
           flex-shrink: 0;
           display: flex;
           align-items: center;
           justify-content: center;
-          border-radius: 50%;
-          background: var(--ink);
-          color: var(--gold-soft);
+          border-radius: 999px;
+          background: var(--gradient);
+          color: #ffffff;
           font-family: var(--font-display);
           font-size: 16px;
           font-weight: 700;
@@ -102,22 +97,21 @@ function StudentList({ students, deleteStudent }) {
 
         .student-name {
           margin: 0;
-          font-size: 15px;
+          font-size: 15.5px;
           font-weight: 700;
           color: var(--ink);
         }
 
         .student-id {
           margin: 3px 0 0;
-          color: var(--slate);
-          font-family: var(--font-mono);
-          font-size: 11px;
+          color: var(--muted);
+          font-size: 11.5px;
         }
 
         .status {
-          padding: 5px 10px;
-          border-radius: 20px;
-          font-size: 10px;
+          padding: 6px 12px;
+          border-radius: 999px;
+          font-size: 10.5px;
           font-weight: 700;
           text-transform: uppercase;
           letter-spacing: 0.3px;
@@ -143,8 +137,8 @@ function StudentList({ students, deleteStudent }) {
           grid-template-columns: 1fr 1fr;
           gap: 16px;
           padding: 16px 0;
-          border-top: 1px dashed var(--line);
-          border-bottom: 1px dashed var(--line);
+          border-top: 1px solid var(--line);
+          border-bottom: 1px solid var(--line);
         }
 
         .detail-item {
@@ -154,7 +148,7 @@ function StudentList({ students, deleteStudent }) {
         .detail-label {
           display: block;
           margin-bottom: 4px;
-          color: #a49f8d;
+          color: var(--muted);
           font-size: 10px;
           font-weight: 700;
           text-transform: uppercase;
@@ -164,7 +158,7 @@ function StudentList({ students, deleteStudent }) {
         .detail-value {
           display: block;
           color: var(--ink-soft);
-          font-size: 13px;
+          font-size: 13.5px;
           font-weight: 600;
           white-space: nowrap;
           overflow: hidden;
@@ -180,12 +174,11 @@ function StudentList({ students, deleteStudent }) {
 
         .student-grade {
           color: var(--slate);
-          font-size: 12px;
+          font-size: 12.5px;
         }
 
         .grade {
           margin-left: 4px;
-          font-family: var(--font-mono);
           color: var(--ink);
           font-size: 14px;
           font-weight: 700;
@@ -195,21 +188,22 @@ function StudentList({ students, deleteStudent }) {
           display: inline-flex;
           align-items: center;
           gap: 5px;
-          padding: 8px 13px;
-          border-radius: 7px;
+          padding: 9px 14px;
+          border-radius: var(--radius-sm);
           border: 1px solid var(--line);
           background: transparent;
           color: var(--ink);
           text-decoration: none;
-          font-size: 11.5px;
+          font-size: 12px;
           font-weight: 700;
-          transition: 0.2s ease;
+          transition: all 0.2s ease;
         }
 
         .profile-btn:hover {
-          background: var(--ink);
-          border-color: var(--ink);
-          color: #fdfbf5;
+          background: var(--gradient);
+          border-color: transparent;
+          color: #ffffff;
+          transform: scale(1.02);
         }
 
         .card-actions {
@@ -222,20 +216,21 @@ function StudentList({ students, deleteStudent }) {
           display: inline-flex;
           align-items: center;
           gap: 5px;
-          padding: 8px 13px;
-          border-radius: 7px;
+          padding: 9px 14px;
+          border-radius: var(--radius-sm);
           border: 1px solid var(--rust-bg);
           background: transparent;
           color: var(--rust);
-          font-size: 11.5px;
+          font-size: 12px;
           font-weight: 700;
-          transition: 0.2s ease;
+          transition: all 0.2s ease;
         }
 
         .delete-btn:hover {
           background: var(--rust);
           border-color: var(--rust);
           color: white;
+          transform: scale(1.02);
         }
 
         @media (max-width: 800px) {
